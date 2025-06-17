@@ -99,7 +99,7 @@ jobs:
       if: github.event_name == 'schedule'
       run: echo PYTEST_ADDOPTS=--scheduled >> "$GITHUB_ENV"
 
-    - name: Run all tests except those involving live services
+    - name: Run all tests except those involving obolibrary
       if: matrix.mode != 'dandi-api'
       run: |
         python -m pytest -s -v -m "not obolibrary" --cov=dandi --cov-report=xml dandi
